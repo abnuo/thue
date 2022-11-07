@@ -5,9 +5,9 @@ from tracery.modifiers import base_english
 rules = {"origin": ""}
 fn = "thue_1.txt"
 code = """
-@::=~Hi World
+*::=Hello World
 ::=
-@@
+*
 """
 if fn:
   with open(fn,"r",encoding="utf-8") as f:
