@@ -61,7 +61,7 @@ for i in no_duplicates:
     thue.append(f"<{i}>::={i}{sep}<{x}>")
     #thue.append(f" {i}::= {x}")
 for i in no_duplicates:
-  thue.append(f"markov::=<{i}>")
+  thue.append(f"@markov::=<{i}>")
 thue.append(",::= ")
 thue.append("::=")
 thue.append("@markov")
