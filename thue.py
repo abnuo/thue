@@ -1,4 +1,5 @@
 import random
+import sys
 
 class VM:
   def __init__(self,rules,init=None):
@@ -37,6 +38,15 @@ class VM:
         rhs = input("Gimme a string!")
       output = self.replace(output)
     return output
-  def run2(self):
-    output = self.init
-    output = self.replace(output,True)
+
+if __name__ == "__main__":
+  try:
+    fn = sys.argv[1]
+  except:
+    print("USAGE: thue.py <file>")
+    sys.exit()
+  with open(fn,"r",encoding="utf-8") as f:
+    c = f.read()
+  vm = VM(c)
+  out = vm.run()
+  print(out)
