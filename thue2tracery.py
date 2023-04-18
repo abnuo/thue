@@ -1,9 +1,18 @@
 import json
 import tracery
+import sys
 from tracery.modifiers import base_english
 
 rules = {"origin": ""}
-fn = "thue_1.txt"
+try:
+  fn = sys.argv[1]
+except:
+  print("USAGE: thue2tracery.py <infile> <outfile>")
+  sys.exit()
+try:
+  out = sys.argv[2]
+except:
+  out = "grammar.json"
 code = """
 *::=Hello World
 ::=
@@ -34,7 +43,7 @@ rules["origin"] = tracify(rules["origin"])
 body = []
 for i in rules:
     body.append(" "*8+json.dumps(i)+": "+json.dumps(rules[i]))
-with open("tracery.json","w",encoding="utf-8") as f:
+with open(out,"w",encoding="utf-8") as f:
   f.write("{\n")
   f.write(",\n".join(body))
   f.write("\n}")
